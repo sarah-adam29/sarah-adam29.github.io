@@ -247,6 +247,7 @@ h1 {
 }
 
 .button-secondary {
+  background: var(--white);
   border: 1.5px solid var(--ink);
   color: var(--ink);
 }
