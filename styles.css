@@ -10,6 +10,7 @@
   --border: #E4E8EE;
   --card-border: #DDE3EB;
   --dashed-border: #BCC5D1;
+  --dot: #C9CED6;
   --white: #FFFFFF;
 
   --published: #1E7046;
@@ -162,8 +163,40 @@ h2 {
 /* Hero */
 
 .hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   padding-top: 112px;
   padding-bottom: 96px;
+}
+
+/* Dot grid: a dot every 28px from the page centre, and at 14px + multiples of 28px from the top */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--dot) 2.5px, transparent 3px);
+  background-size: 28px 28px;
+  background-position: 50% 0;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.45) 55%, #000 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.45) 55%, #000 100%);
+}
+
+/* Every point of the path sits on a dot. If top changes, keep it at 116px plus or minus a multiple of 28px */
+.hero-path {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  left: calc(50% + 186px);
+  top: 116px;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
 }
 
 .eyebrow {
@@ -179,6 +212,7 @@ h1 {
   font-size: 60px;
   line-height: 1.08;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .lead {
@@ -484,6 +518,14 @@ h1 {
 .footer-links {
   display: flex;
   gap: 24px;
+}
+
+/* Hide the hero path before it can run into the text */
+
+@media (max-width: 1119px) {
+  .hero-path {
+    display: none;
+  }
 }
 
 /* Smaller screens */
