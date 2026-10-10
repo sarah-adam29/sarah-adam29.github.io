@@ -215,6 +215,10 @@ h1 {
   text-wrap: balance;
 }
 
+.hero-break {
+  display: none;
+}
+
 .lead {
   max-width: 680px;
   margin-top: 28px;
@@ -580,5 +584,17 @@ h1 {
 
   .about {
     gap: 48px;
+  }
+}
+
+/* Phones: fixed four-line headline, sized so its longest line always fits */
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: min(40px, calc((100vw - 48px) / 9.5));
+  }
+
+  .hero-break {
+    display: inline;
   }
 }
