@@ -292,6 +292,12 @@ h1 {
   color: var(--body);
 }
 
+.card-note {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
 .card-foot {
   align-self: flex-start;
   margin-top: 24px;
@@ -523,6 +529,10 @@ h1 {
 .footer-links {
   display: flex;
   gap: 24px;
+}
+
+.footer-note {
+  flex-basis: 100%;
 }
 
 /* Hide the hero path before it can run into the text */
