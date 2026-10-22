@@ -295,7 +295,8 @@ h1 {
 .card-note {
   margin-top: 12px;
   font-size: 15px;
-  color: var(--muted);
+  font-style: italic;
+  color: var(--soft);
 }
 
 .card-foot {
